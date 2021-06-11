@@ -1,0 +1,55 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:#F8F8F8;
+}
+
+.title {
+    margin: 1rem;
+}
+
+hr {
+    border-bottom:1px solid black;
+    width:100%;
+}
+.card, .list-group-item {
+
+    margin:0 auto;
+    margin:10px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow:  -20px 20px 60px #d3d3d3,
+            20px -20px 60px #ffffff;
+}
+
+.author{
+    font-weight:bold;
+
+}
+
+button {
+    margin-bottom:10px;
+}
+
+.nav-link {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link svg {
+    margin-right: 5px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.made-with-love{
+    color: white;
+}
+
+.made-with-love:hover{
+    color: antiquewhite;
+}

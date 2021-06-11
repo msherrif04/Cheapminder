@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href="../static/css/styles.css">
+    <link rel = "icon" href = "../static/images/logo.png" type = "image/x-icon"> 
+
+    <title>Cheap.minder</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-light">
+            <a class="navbar-brand mb-0 h1" href="/">Cheap.minder</a>
+            <a href="{{url_for('highlights')}}" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive-fill" viewBox="0 0 16 16">
+                    <path d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
+                </svg>
+                Highlights
+            </a>
+            <form class="form-inline sign_up--form" action="{{url_for('sign_up_success')}}" method="POST">
+                <label class="sr-only" for="first_name">First Name</label>
+                <input type="text" class="form-control form-control-sm mb-2 mr-sm-2" name="first_name" placeholder="First Name">
+                <label class="sr-only" for="email">Email</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <input type="email" class="form-control form-control-sm" name="email" placeholder="example@gmail.com">
+                </div>
+                <button type="submit" class="btn btn-dark mb-2">Receive Daily Highlights</button>
+            </form>
+        </nav>
+    
+        <div class="row">
+            <div class="col-8">
+                <h1 class="title">{{book}}</h1>
+                <hr>
+
+                {% for highlight in highlights %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="author">{{highlight.author}}</h5>
+                        <p class="book text-muted">{{highlight.book}}</p>
+                        <blockquote class="quote">"{{highlight.quote }}"</blockquote>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-4">
+                <h1 class="title">Daily Quote</h1>
+                <hr>
+                <br>
+                <div class="random_quote">
+                    <div class="card text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="author">{{random_quote.author}}</h5>
+                            <p class="book text-muted">{{random_quote.book}}</p>
+                            <blockquote class="quote">"{{random_quote.quote }}"</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <h1 class="title">New Highlight</h1>
+                <hr>
+                <form action="/" method="POST">
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" name="author" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="book">Book</label>
+                        <input type="text" class="form-control" name="book" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="quote">Highlight</label>
+                        <textarea class="form-control" name="quote" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Add Highlight</button>
+                </form>
+                
+                <br>
+                <div class="alert alert-secondary" role="alert">
+                    Import your highlights from a csv. Kindly make sure the file has three columns; quote,author,book
+                </div>
+                <form action="{{url_for('import_csv')}}" method="POST" enctype="multipart/form-data">
+                    <input type='file' class="form-control " name="file" accept=".csv">
+                    <br>
+                    <button type="submit" class="btn btn-dark">Import Highlights</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="navbar navbar-dark bg-dark">
+        <div class="footer container">
+            <a class="navbar-brand" href="#">Cheap.minder</a>
+            <a href="https://msfuseini.herokuapp.com/Resume" target="_blank" class="made-with-love">Made with ❤️ by Mohammed-Sherrif Fuseini</a>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
