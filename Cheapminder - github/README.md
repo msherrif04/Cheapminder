@@ -1,4 +1,4 @@
-# CHEAP.MINDER [Revisit Your Favourite Book Hightlights](https://www.cheapminder.herokuapp.com)
+# CHEAP.MINDER [Revisit Your Favourite Book Hightlights](https://cheapminder.herokuapp.com)
 
 This is my first big project, built mainly for me to use as a personal alternative to readwise as well as test and showcase my front end and back end skills. This is very much a **personal project and nothing else**
 
