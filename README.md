@@ -1,10 +1,10 @@
-# CHEAP.MINDER [Revisit Your Favourite Book Hightlights](https://www.cheapminder.herokuapp.com)
+# CHEAP.MINDER [Revisit Your Favourite Book Highlights](https://cheapminder.herokuapp.com)
 
 This is my first big project, built mainly for me to use as a personal alternative to readwise as well as test and showcase my front end and back end skills. This is very much a **personal project and nothing else**
 
 ## Tech stack chosen
 
-For the front end, I used figma in designing the website. I used vanilla css and html as well bootstrap for the front end design. The neomorphism was done using [neomorphism generator](https://neumorphism.io).
+For the front end, I used figma in designing the website. I used vanilla css and html as well as bootstrap for the front end design. The neomorphism was done using [neomorphism generator](https://neumorphism.io).
 
 I chose flask for backend development and the postgresql for managing the database for this web app.
 
